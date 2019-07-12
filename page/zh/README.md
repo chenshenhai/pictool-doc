@@ -1,3 +1,0 @@
-# Pictool
-
-./zh/readme.md
