@@ -1,3 +1,0 @@
-# Pictool
-
-./nested/readme.md
