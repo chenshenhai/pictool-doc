@@ -1,5 +1,5 @@
 module.exports = {
-  base: './',
+  base: '/pictool-doc/',
   locales: {
     '/': {
       lang: 'en-US', 
