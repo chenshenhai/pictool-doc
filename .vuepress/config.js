@@ -23,7 +23,7 @@ module.exports = {
       },
       '/page/zh/': {
         sidebar: [
-          ['/page/zh/file/quickstart', 'zh:Quick Start'],
+          ['/page/zh/file/quickstart', '快速开始'],
         ]
       }
     }
