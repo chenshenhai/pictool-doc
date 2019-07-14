@@ -27,7 +27,7 @@ npm i --save pictool
 import Pictool from 'pictool';
 
 // 步骤1: 设置图片URL(绝对路径或者相对路径)
-const src = './image/xxxx.jpg';
+const src = './image/test.jpg';
 const Sandbox = Pictool.browser.Sandbox;
 const sandbox = new Sandbox(src);
 const dom = document.querySelector('#J_Example_01');
@@ -63,7 +63,7 @@ sandbox.queueProcess([
   </head>
   <body>
     <div class="box">
-      <img src="./image/lena.jpg" />
+      <img src="./image/test.jpg" />
     </div>
 
     <div class="box" id="J_Example_01">
