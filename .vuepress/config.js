@@ -22,7 +22,7 @@ module.exports = {
           ['/page/en-US/file/quickstart', 'Quick Start'],
         ]
       },
-      '/page/zh/': {
+      '/': {
         sidebar: [
           ['/page/zh/file/quickstart', '快速开始'],
           ['/page/zh/file/browser', '浏览器功能'],
