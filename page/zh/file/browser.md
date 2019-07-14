@@ -16,7 +16,8 @@ const util = Pictool.browser.util;
 - `util.getImageDataBySrc` 通过图片URL获取生产图片数据 [ImageData](https://developer.mozilla.org/zh-CN/docs/Web/API/ImageData/ImageData)
 - `util.compressImage` 通过图片元素`HTMLImageElement`将图片进行压缩处理
 - `util.imageData2Base64` 通过图片数据`ImageData`将图片进行转换成`Base64`字符串
-
+- `util.imageData2DigitImageData` 浏览器的`ImageData`数据转`Pictool`数字图像数据 [DigitImageData](/page/zh/file/digit.html#digit-digitimagedata)
+- `util.digitImageData2ImageData` `Pictool`数字图像数据[DigitImageData](/page/zh/file/digit.html#digit-digitimagedata)转浏览器的`ImageData`数据
 
 
 ### 沙箱类 Sandbox
@@ -109,6 +110,31 @@ const base64 = Pictool.browser.util.imageData2Base64(imgData)
 // 测试结果
 document.getElementById('J_Example_05').innerHTML = `<img src="${base64}">`;
 ```
+
+## util.imageData2DigitImageData
+
+- 参数 `imgData {ImageData}` 是浏览器图像的数据类型
+- 返回 `imgData {DigitImageData}` `Pictool`数字图像数据 [DigitImageData](/page/zh/file/digit.html#digit-digitimagedata)
+
+浏览器的`ImageData`数据转`Pictool`数字图像数据 [DigitImageData](/page/zh/file/digit.html#digit-digitimagedata)
+
+```js
+const digitImg = Pictool.browser.util.imageData2DigitImageData(imgData)
+```
+
+## util.digitImageData2ImageData
+
+`Pictool`数字图像数据[DigitImageData](/page/zh/file/digit.html#digit-digitimagedata)转浏览器的`ImageData`数据
+
+
+
+- 参数 `imgData {DigitImageData}` `Pictool`数字图像数据 [DigitImageData](/page/zh/file/digit.html#digit-digitimagedata)
+- 返回 `imgData {ImageData}` 是浏览器图像的数据类型
+
+```js
+const imgData = Pictool.browser.util.imageData2DigitImageData(digitImg)
+```
+
 
 
 ## Sandbox
