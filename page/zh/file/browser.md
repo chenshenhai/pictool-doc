@@ -34,7 +34,7 @@ const Sandbox = Pictool.browser.Sandbox;
 
 `util.getImageBySrc` 通过图片URL获取生产图片元素 `HTMLImageElement`
 
-- 参数 `imgSrc` 可以是`图片URL`或者图片的`base64`字符串
+- 参数 `imgSrc {string}` 可以是`图片URL`或者图片的`base64`字符串
 - 返回 `Promise<HTMLImageElement>`
 
 ```js
@@ -112,3 +112,34 @@ document.getElementById('J_Example_05').innerHTML = `<img src="${base64}">`;
 
 
 ## 沙箱 Sandbox
+
+`Pictool.browser.Sandbox` 是个`class`，主要提供一个对单一图片的图像处理沙箱
+
+- 初始化参数 `imgSrc {string}` 可以是`图片URL`或者图片的`base64`字符串
+- 方法 `queueProcess`
+  - 参数 `opts {array}` 是个处理流程配置数据
+    - 数组的元素为对象, `{process: string, options: any}`
+    - `process` 为图像处理算法 `// TODO`
+    - `options` 为对应算法的参数 `// TODO`
+  - 返回 `Promise<string>` 图片处理后的 `base64`字符串
+
+
+```js
+const sandbox = new Pictool.browser.Sandbox(imgSrc);
+const opts = [
+  {
+    process: 'sobel',
+    options: {},
+  },
+  {
+    process: 'invert',
+    options: {},
+  }
+]
+
+sandbox.queueProcess(opts).then(function(base64) {
+  document.getElementById('J_Example_06').innerHTML = `<img src="${base64}" />`;
+}).catch(function(err) {
+  console.log(err);
+});
+```
