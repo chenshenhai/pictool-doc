@@ -28,7 +28,7 @@ import Pictool from 'pictool';
 const Sandbox = Pictool.browser.Sandbox;
 ```
 
-`Pictool.browser.util` 是个`class`，主要提供一个对单一图片的图像处理沙箱
+`Pictool.browser.Sandbox` 是个`class`，主要提供一个对单一图片的图像处理沙箱
 
 ## util.getImageBySrc
 
