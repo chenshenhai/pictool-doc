@@ -1,5 +1,7 @@
 # 快速开始
 
+> 注： 完整配置代码可参考 [pictool-example](https://github.com/chenshenhai/pictool-example)
+
 ## 准备环境
 
 - 系统环境: Windows，macOS，Linux
@@ -28,7 +30,7 @@ import Pictool from 'pictool';
 const src = './image/xxxx.jpg';
 const Sandbox = Pictool.browser.Sandbox;
 const sandbox = new Sandbox(src);
-const dom = document.querySelector('#display');
+const dom = document.querySelector('#J_Example_01');
 
 sandbox.queueProcess([
   // 步骤2: 利用 sobel 算法计算处理图像边缘
@@ -55,25 +57,19 @@ sandbox.queueProcess([
   <head>
     <meta charset="UTF-8">
     <style>
-    img {
-      max-height: 200px;
-      min-width: 100px;
-    }
+      .box {float: left; margin-right: 10px;}
+      img { max-height: 200px; min-width: 100px;}
     </style>
   </head>
   <body>
-
-    <div>
-      <img src="./image/xxx.jpg" />
+    <div class="box">
+      <img src="./image/lena.jpg" />
     </div>
 
-    <div id="display">
+    <div class="box" id="J_Example_01">
       <img />
     </div>
-
     <script src="./index.js"></script>
-    <script>
-    </script>
   </body>
 </html>
 ```
