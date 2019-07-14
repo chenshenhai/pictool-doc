@@ -111,7 +111,7 @@ document.getElementById('J_Example_05').innerHTML = `<img src="${base64}">`;
 ```
 
 
-## 沙箱 Sandbox
+## Sandbox
 
 `Pictool.browser.Sandbox` 是个`class`，主要提供一个对单一图片的图像处理沙箱
 
