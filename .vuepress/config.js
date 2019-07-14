@@ -2,21 +2,22 @@ module.exports = {
   base: '/pictool-doc/',
   locales: {
     '/': {
+      lang: 'zh-CN',
+      title: 'Pictool',
+      description: 'Pictool 一个前端图像处理小工具',
+    },
+
+    '/page/en-US/': {
       lang: 'en-US', 
       title: 'Pictool',
       description: 'Pictool. A front-end gadget for image processing',
     },
-
-    '/page/zh/': {
-      lang: 'zh-CN',
-      title: 'Pictool',
-      description: 'Pictool 一个前端图像处理小工具',
-    }
+    
   },
   themeConfig: {
     nav: [],
     locales: {
-      '/': {
+      '/page/en-US/': {
         sidebar: [
           ['/page/en-US/file/quickstart', 'Quick Start'],
         ]

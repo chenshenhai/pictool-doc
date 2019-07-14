@@ -1,3 +1,3 @@
 # Pictool
 
-./
+hello world
