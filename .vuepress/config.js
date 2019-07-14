@@ -24,6 +24,9 @@ module.exports = {
       '/page/zh/': {
         sidebar: [
           ['/page/zh/file/quickstart', '快速开始'],
+          ['/page/zh/file/browser', '浏览器功能'],
+          ['/page/zh/file/digit', '数字化功能'],
+          ['/page/zh/file/ui', 'UI工具'],
         ]
       }
     }

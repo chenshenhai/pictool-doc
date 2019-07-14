@@ -16,19 +16,27 @@ npm i --save pictool
 
 ### JavaScript代码
 
+- 将图像处理素描效果
+  - 步骤1: 设置图片URL(绝对路径或者相对路径)
+  - 步骤2: 利用`sobel`算法计算处理图像边缘
+  - 步骤3: 利用`invert`反色算法处理成边缘黑色效果
+
 ```js
 import Pictool from 'pictool';
 
+// 步骤1: 设置图片URL(绝对路径或者相对路径)
 const src = './image/xxxx.jpg';
 const Sandbox = Pictool.browser.Sandbox;
 const sandbox = new Sandbox(src);
 const dom = document.querySelector('#display');
 
 sandbox.queueProcess([
+  // 步骤2: 利用 sobel 算法计算处理图像边缘
   {
     process: 'sobel',
     options: {},
   },
+  // 步骤3: 利用 invert 反色算法处理成边缘黑色效果
   {
     process: 'invert',
     options: {},
@@ -46,7 +54,6 @@ sandbox.queueProcess([
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <style>
     img {
       max-height: 200px;
