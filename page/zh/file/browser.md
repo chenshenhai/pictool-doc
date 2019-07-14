@@ -10,7 +10,7 @@ import Pictool from 'pictool';
 const util = Pictool.browser.util;
 ```
 
-`Pictool.browser.util` 是个对象，主要封装了一下方法
+`Pictool.browser.util` 是个对象，主要封装了以下方法
 
 - `util.getImageBySrc` 通过图片URL获取生产图片元素 `HTMLImageElement`
 - `util.getImageDataBySrc` 通过图片URL获取生产图片数据 [ImageData](https://developer.mozilla.org/zh-CN/docs/Web/API/ImageData/ImageData)
