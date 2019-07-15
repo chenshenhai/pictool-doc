@@ -2,7 +2,7 @@ module.exports = {
   base: '/pictool-doc/',
   locales: {
     '/': {
-      lang: 'zh-CN',
+      lang: '中文',
       title: 'Pictool',
       description: 'Pictool 一个前端图像处理小工具',
     },
