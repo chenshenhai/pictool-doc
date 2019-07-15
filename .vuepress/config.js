@@ -27,8 +27,8 @@ module.exports = {
           ['/page/zh/file/quickstart', '快速开始'],
           ['/page/zh/file/browser', '浏览器功能'],
           ['/page/zh/file/digit', '数字化基础'],
-          ['/page/zh/file/digit-transform', '数字化转换'],
-          ['/page/zh/file/digit-process', '数字化处理'],
+          ['/page/zh/file/digit-process', '图像数字化处理'],
+          ['/page/zh/file/digit-transform', '图像数字化转换'],
           ['/page/zh/file/ui', 'UI工具'],
         ]
       }
