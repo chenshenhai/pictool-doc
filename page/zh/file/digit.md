@@ -224,6 +224,17 @@ digitImg.getData(); // Uint8ClampedArray[] 空数组
 ```js
 const Effect = Pictool.digit.Effect;
 
+// digitImg 参数为一个原始的 DigitImageData 数据
 const effect = new Effect(digitImg);
-const 
+
+// 按照顺序进行 sobel算法、invert算法 的图形换算处理
+// 即先处理边缘化，再取反色，把彩色图片变成黑色描边的素描图片
+effect.process('sobel', {}).process('invert', {});
+
+// 获取数字图像数据 DigitImageData
+const digitImg = effect.getDigitImageData();
+
+// 获取浏览器图像数据 ImageData 可以直接用 canvas 渲染显示
+const imgData = effect.getImageData();
+
 ```
