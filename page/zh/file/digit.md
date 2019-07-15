@@ -53,10 +53,177 @@ const process = Pictool.digit.process;
 `Pictool.digit.DigitImageData` 是整个`Pictool`图像处理的数据基础，所有在浏览器获取到的图片数据都会在`Pictool`中转转换成 `DigitImageData` 数据类型，再基于该数据类型做各种各样的数字图像处理。
 
 
+
 ```js
 const DigitImageData = Pictool.digit.DigitImageData;
+
+const arr = [];
+const width = 16;
+const height = 16;
+for (let i = 0; i < width * height; i ++) {
+  // 天蓝色的 RGBA 值
+  arr.push(96, 207, 245, 255);
+}
+const data = new Uint8ClampedArray(arr);
+
+const options = { width, height, data};
+const digitImg = new DigitImageData(options);
+```
+
+- 参数 `options` 是一个对象
+  - `options.width {number}` `[必填]` 是数字图像的宽度
+  - `options.height {number}` `[必填]` 是数字图像的高度
+  - `options.data {Uint8ClampedArray}` `[选填]` 是数字图像的`RGBA`数据
+    - 不填时，默认为`new Uint8ClampedArray(width * height * 4)`
+    - 即不填时候，为透明的 `RGBA` 色彩数据
+
+
+
+### DigitImageData.getWidth()
+
+方法 `DigitImageData.getWidth()`
+获取图像宽度信息
+
+返回 `width {number}`
+
+```js
+const options = { width, height, data};
+const digitImg = new DigitImageData(options);
+
+digitImg.getWidth()  // width
+```
+
+
+### DigitImageData.getHeight()
+
+方法 `DigitImageData.getHeight()`
+获取图像高度信息
+
+返回 `height {number}`
+
+```js
+const options = { width, height, data};
+const digitImg = new DigitImageData(options);
+
+digitImg.getHeight()  // height
+```
+
+### DigitImageData.getData()
+
+方法 `DigitImageData.getData()`
+获取图像RGBA数据信息
+
+返回 `data {Uint8ClampedArray}`
+
+```js
+const options = { width, height, data};
+const digitImg = new getData(options);
+
+digitImg.getData()  // height
+```
+
+### DigitImageData.getData()
+
+方法 `DigitImageData.getData()`
+获取图像RGBA数据信息
+
+返回 `data {Uint8ClampedArray}`
+
+```js
+const options = { width, height, data};
+const digitImg = new getData(options);
+
+digitImg.getData()  // data
+```
+
+### DigitImageData.pixelAt(x, y)
+
+方法 `DigitImageData.pixelAt(x, y)`
+获取图像坐标为`(x, y)`的 RGBA数据信息
+
+- 参数 `x {number}` 像素的X轴坐标 
+- 参数 `y {number}` 像素的Y轴坐标 
+- 返回 `{r: number, g: number, b: number, a: number }` 像素的 RGBA 信息
+
+```js
+const data = [
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,  
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,
+  0, 0, 0, 0,  1, 2, 3, 255,  0, 0, 0, 0 
+];
+const width = 3;
+const width = 3;
+const options = { width, height, data};
+const digitImg = new getData(options);
+
+digitImg.pixelAt(1, 2)  // {r: 1, g: 2, b: 3, a: 255 }
+```
+
+### DigitImageData.setDataUnit(index, unit)
+
+方法 `DigitImageData.setDataUnit(index, unit)`
+设置图像数据`data`索引为`index`位置的图形单元信息`unit`
+
+- 参数 `index {number}` 像素的X轴坐标 
+- 参数 `unit {number}` 像素的Y轴坐标 
+
+```js
+const data = [
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,  
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,
+  0, 0, 0, 0,  0, 0, 0, 0,   0, 0, 0, 0 
+];
+const width = 3;
+const width = 3;
+const options = { width, height, data};
+const digitImg = new getData(options);
+
+digitImg.setDataUnit(1, 255)  // {r: 1, g: 2, b: 3, a: 255 }
+
+digitImg.getData();
+/*
+[
+  0, 255, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,  
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,
+  0, 0, 0, 0,  0, 0, 0, 0,   0, 0, 0, 0 
+];
+*/
+```
+
+
+### DigitImageData.destory()
+
+方法 `DigitImageData.destory()`
+销毁数字图像信息，为了释放内存
+
+```js
+const data = [
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,  
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,
+  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0 
+];
+const width = 3;
+const width = 3;
+const options = { width, height, data};
+const digitImg = new getData(options);
+
+digitImg.destory()  // {r: 1, g: 2, b: 3, a: 255 }
+
+
+digitImg.getHeight(); // 0
+digitImg.getWidth(); // 0
+digitImg.getData(); // Uint8ClampedArray[] 空数组
+
 ```
 
 
 ## digit.Effect
 
+`Pictool.digit.Effect` 是`Pictool`数字图像效果处理的高阶类，主要是用于连续处理多种图像算法的操作。
+
+```js
+const Effect = Pictool.digit.Effect;
+
+const effect = new Effect(digitImg);
+const 
+```
