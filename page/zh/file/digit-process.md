@@ -235,6 +235,71 @@ const rsDigitImg = process.saturation(digitImg, { value: 50 });
 
 ## process.grayscale 
 
+图像`灰度图`处理
+
+- 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
+- 返回 `{DigitImageData}` 处理后的数字图像数据
+
+```js
+const process = Pictool.digit.process;
+
+// 灰度处理
+const rsDigitImg = process.grayscale(digitImg);
+```
+
+#### process.grayscale CDN方式使用例子
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .box {width: 200px; height: 200px; float: left; margin-left: 10px; }
+      img { max-height: 200px; max-width: 200px; }
+    </style>
+    <script src="https://unpkg.com/pictool/dist/index.js"></script>
+  </head>
+  <body>
+
+    <div class="box">
+      <img src="./assets/image/test.jpg" />
+    </div>
+
+    <div  class="box" id="J_Example"></div>
+
+  </body>
+  <script>
+  (async function(Pictool) {
+    const util = Pictool.browser.util;
+    const process = Pictool.digit.process;
+    const imgData = await util.getImageDataBySrc('./assets/image/test.jpg');
+    if (imgData instanceof Error) {
+      console.log(imgData);
+      return;
+    }
+
+    const digitImg = util.imageData2DigitImageData(imgData);
+
+    // 灰度图处理
+    const rsDigitImg = process.grayscale(digitImg);
+    
+    const rsImgData = util.digitImageData2ImageData(rsDigitImg);
+    const base64 = util.imageData2Base64(rsImgData);
+
+    document.getElementById('J_Example').innerHTML = `<img src="${base64}">`
+
+  })(window.Pictool);
+  </script>
+</html>
+```
+
+效果如下
+
+> 注: 例子使用图片来源于网络
+
+![example-digit-process-grayscale](./../../../assets/image/example-digit-process-grayscale.jpg)
+
+
 ## process.invert 
 
 ## process.sobel
