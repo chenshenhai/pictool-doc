@@ -1,6 +1,6 @@
 # Pictool.digit.process
 
-## digit.process 
+## 图像处理对象 digit.process 
 
 ```js
 const process = Pictool.digit.process;
@@ -10,9 +10,13 @@ const process = Pictool.digit.process;
 
 封装的方法，都是是将原类型为 `{DigitImageData}` 的图像数字数据，进行响应的要求图像处理，最后输出一个处理后的 `{DigitImageData}` 数据
 
-## process.lightness(digitImg, options)
+## 亮度 process.lightness
 
 图像`亮度`处理
+
+```js
+const result = Pictool.digit.process.lightness(digitImg, options)
+```
 
 - 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
 - 参数 `options {object}`
@@ -85,9 +89,13 @@ const rsDigitImg = process.lightness(digitImg, { value: 50 });
 ![example-digit-process-lightness](./../../../assets/image/example-digit-process-lightness.jpg)
 
 
-## process.hua(digitImg, options)
+## 色相 process.hue
 
 图像`色相`处理
+
+```js
+const result = Pictool.digit.process.hue(digitImg, options)
+```
 
 - 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
 - 参数 `options {object}`
@@ -159,9 +167,13 @@ const rsDigitImg = process.hue(digitImg, { value: 240 });
 ![example-digit-process-hue](./../../../assets/image/example-digit-process-hue.jpg)
 
 
-## process.saturation(digitImg, options)
+## 饱和度 process.saturation
 
 图像`饱和度`处理
+
+```js
+const result = Pictool.digit.process.saturation(digitImg, options)
+```
 
 - 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
 - 参数 `options {object}`
@@ -233,9 +245,13 @@ const rsDigitImg = process.saturation(digitImg, { value: 50 });
 ![example-digit-process-saturation](./../../../assets/image/example-digit-process-saturation.jpg)
 
 
-## process.grayscale 
+## 灰度 process.grayscale 
 
-图像`灰度图`处理
+图像`灰度`处理
+
+```js
+const result = Pictool.digit.process.saturation(digitImg)
+```
 
 - 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
 - 返回 `{DigitImageData}` 处理后的数字图像数据
@@ -300,9 +316,13 @@ const rsDigitImg = process.grayscale(digitImg);
 ![example-digit-process-grayscale](./../../../assets/image/example-digit-process-grayscale.jpg)
 
 
-## process.invert
+## 反色 process.invert
 
 图像`反色`处理
+
+```js
+const result = Pictool.digit.process.invert(digitImg)
+```
 
 - 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
 - 返回 `{DigitImageData}` 处理后的数字图像数据
@@ -314,7 +334,7 @@ const process = Pictool.digit.process;
 const rsDigitImg = process.invert(digitImg);
 ```
 
-#### process.grayscale CDN方式使用例子
+#### process.invert CDN方式使用例子
 
 ```html
 <html>
@@ -367,7 +387,76 @@ const rsDigitImg = process.invert(digitImg);
 ![example-digit-process-invert](./../../../assets/image/example-digit-process-invert.jpg)
 
 
-## process.sobel
+## sobel边缘检测 process.sobel
+
+图像 `sobel边缘检测`
+
+```js
+const result = Pictool.digit.process.sobel(digitImg)
+```
 
 
+
+- 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
+- 返回 `{DigitImageData}` 处理后的数字图像数据
+
+
+```js
+const process = Pictool.digit.process;
+
+// 反色 处理
+const rsDigitImg = process.sobel(digitImg);
+```
+
+#### process.sobel CDN方式使用例子
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .box {width: 200px; height: 200px; float: left; margin-left: 10px; }
+      img { max-height: 200px; max-width: 200px; }
+    </style>
+    <script src="https://unpkg.com/pictool/dist/index.js"></script>
+  </head>
+  <body>
+
+    <div class="box">
+      <img src="./assets/image/test.jpg" />
+    </div>
+
+    <div  class="box" id="J_Example"></div>
+
+  </body>
+  <script>
+  (async function(Pictool) {
+    const util = Pictool.browser.util;
+    const process = Pictool.digit.process;
+    const imgData = await util.getImageDataBySrc('./assets/image/test.jpg');
+    if (imgData instanceof Error) {
+      console.log(imgData);
+      return;
+    }
+
+    const digitImg = util.imageData2DigitImageData(imgData);
+
+    // sobel 边缘检测
+    const rsDigitImg = process.sobel(digitImg);
+    
+    const rsImgData = util.digitImageData2ImageData(rsDigitImg);
+    const base64 = util.imageData2Base64(rsImgData);
+
+    document.getElementById('J_Example').innerHTML = `<img src="${base64}">`
+
+  })(window.Pictool);
+  </script>
+</html>
+```
+
+效果如下
+
+> 注: 例子使用图片来源于网络
+
+![example-digit-process-sobel](./../../../assets/image/example-digit-process-sobel.jpg)
 
