@@ -84,7 +84,7 @@ const rsDigitImg = process.lightness(digitImg, { value: 50 });
 
 效果如下
 
-> 注: 例子使用图片来源于网络
+> 注: 例子测试的图片来源于网络
 
 ![example-digit-process-lightness](./../../../assets/image/example-digit-process-lightness.jpg)
 
@@ -162,7 +162,7 @@ const rsDigitImg = process.hue(digitImg, { value: 240 });
 
 效果如下
 
-> 注: 例子使用图片来源于网络
+> 注: 例子测试的图片来源于网络
 
 ![example-digit-process-hue](./../../../assets/image/example-digit-process-hue.jpg)
 
@@ -240,7 +240,7 @@ const rsDigitImg = process.saturation(digitImg, { value: 50 });
 
 效果如下
 
-> 注: 例子使用图片来源于网络
+> 注: 例子测试的图片来源于网络
 
 ![example-digit-process-saturation](./../../../assets/image/example-digit-process-saturation.jpg)
 
@@ -311,7 +311,7 @@ const rsDigitImg = process.grayscale(digitImg);
 
 效果如下
 
-> 注: 例子使用图片来源于网络
+> 注: 例子测试的图片来源于网络
 
 ![example-digit-process-grayscale](./../../../assets/image/example-digit-process-grayscale.jpg)
 
@@ -382,7 +382,7 @@ const rsDigitImg = process.invert(digitImg);
 
 效果如下
 
-> 注: 例子使用图片来源于网络
+> 注: 例子测试的图片来源于网络
 
 ![example-digit-process-invert](./../../../assets/image/example-digit-process-invert.jpg)
 
@@ -456,7 +456,7 @@ const rsDigitImg = process.sobel(digitImg);
 
 效果如下
 
-> 注: 例子使用图片来源于网络
+> 注: 例子测试的图片来源于网络
 
 ![example-digit-process-sobel](./../../../assets/image/example-digit-process-sobel.jpg)
 
