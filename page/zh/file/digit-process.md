@@ -19,6 +19,7 @@ const process = Pictool.digit.process;
   - `options.percent {number}` 百分比， 取值范围为`[-100, 100]`
   - `options.value {number}` 亮度值， 取值范围为`[0, 100]`
   - `value`优先级最高，当`percent`和`value`同时出现，只取`value`配置
+- 返回 `{DigitImageData}` 处理后的数字图像数据
 
 ```js
 const process = Pictool.digit.process;
@@ -93,6 +94,7 @@ const rsDigitImg = process.lightness(digitImg, { value: 50 });
   - `options.percent {number}` 色相百分比， 取值范围为`[-100, 100]`
   - `options.value {number}` 色相值， 取值范围为`[0, 360]`
   - `value`优先级最高，当`percent`和`value`同时出现，只取`value`配置
+- 返回 `{DigitImageData}` 处理后的数字图像数据
 
 ```js
 const process = Pictool.digit.process;
@@ -104,7 +106,7 @@ const rsDigitImg = process.hue(digitImg, { percent: 10 });
 const rsDigitImg = process.hue(digitImg, { value: 240 });
 ```
 
-#### process.lightness CDN方式使用例子
+#### process.hue CDN方式使用例子
 
 ```html
 <html>
@@ -157,7 +159,79 @@ const rsDigitImg = process.hue(digitImg, { value: 240 });
 ![example-digit-process-hue](./../../../assets/image/example-digit-process-hue.jpg)
 
 
-## process.saturation 
+## process.saturation(digitImg, options)
+
+图像`饱和度`处理
+
+- 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
+- 参数 `options {object}`
+  - `options.percent {number}` 饱和度百分比， 取值范围为`[-100, 100]`
+  - `options.value {number}` 饱和度值， 取值范围为`[0, 100]`
+  - `value`优先级最高，当`percent`和`value`同时出现，只取`value`配置
+- 返回 `{DigitImageData}` 处理后的数字图像数据
+
+```js
+const process = Pictool.digit.process;
+
+// 将饱和度提升 70%
+const rsDigitImg = process.saturation(digitImg, { percent: 70 });
+
+// 将饱和度值设为 50
+const rsDigitImg = process.saturation(digitImg, { value: 50 });
+```
+
+#### process.saturation CDN方式使用例子
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .box {width: 200px; height: 200px; float: left; margin-left: 10px; }
+      img { max-height: 200px; max-width: 200px; }
+    </style>
+    <script src="https://unpkg.com/pictool/dist/index.js"></script>
+  </head>
+  <body>
+
+    <div class="box">
+      <img src="./assets/image/test.jpg" />
+    </div>
+
+    <div  class="box" id="J_Example"></div>
+
+  </body>
+  <script>
+  (async function(Pictool) {
+    const util = Pictool.browser.util;
+    const process = Pictool.digit.process;
+    const imgData = await util.getImageDataBySrc('./assets/image/test.jpg');
+    if (imgData instanceof Error) {
+      console.log(imgData);
+      return;
+    }
+
+    const digitImg = util.imageData2DigitImageData(imgData);
+
+    // 饱和度提高 70%
+    const rsDigitImg = process.saturation(digitImg, { percent: 70 });
+    
+    const rsImgData = util.digitImageData2ImageData(rsDigitImg);
+    const base64 = util.imageData2Base64(rsImgData);
+
+    document.getElementById('J_Example').innerHTML = `<img src="${base64}">`
+
+  })(window.Pictool);
+  </script>
+</html>
+```
+
+效果如下
+
+> 注: 例子使用图片来源于网络
+
+![example-digit-process-saturation](./../../../assets/image/example-digit-process-saturation.jpg)
+
 
 ## process.grayscale 
 
