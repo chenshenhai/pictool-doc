@@ -1,5 +1,8 @@
 module.exports = {
   base: '/pictool-doc/',
+  head: [
+    ['link', { rel: 'icon', href: 'https://user-images.githubusercontent.com/8216630/61581603-28ffd180-ab53-11e9-9461-a24d31643ec7.png' }]
+  ],
   locales: {
     '/': {
       lang: '中文',
@@ -16,6 +19,8 @@ module.exports = {
   },
   themeConfig: {
     nav: [],
+    repo: 'chenshenhai/pictool',
+    docsRepo: 'chenshenhai/pictool',
     locales: {
       '/page/en-US/': {
         sidebar: [
