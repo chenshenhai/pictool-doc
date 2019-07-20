@@ -1,3 +1,3 @@
 # Pictool
 
-./en-US/file/readme.md
+./zh/file/readme.md

@@ -20,6 +20,11 @@ module.exports = {
       '/page/en-US/': {
         sidebar: [
           ['/page/en-US/file/quickstart', 'Quick Start'],
+          ['/page/en-US/file/ui', 'UI Tool'],
+          ['/page/en-US/file/browser', 'Browser Tool'],
+          ['/page/en-US/file/digit', 'Digit Base'],
+          ['/page/en-US/file/digit-process', 'Digit Process'],
+          ['/page/en-US/file/digit-transform', 'Digit Transform'],
         ]
       },
       '/': {

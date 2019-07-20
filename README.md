@@ -12,3 +12,8 @@ features:
   details: 图像处理的底层实现，是基于独立设计 DigitImageData 数据类型。与浏览器的 ImageData 解耦，同时两者数据可以实现互相转换。
 footer: MIT Licensed | Copyright © 2019 chenshenhai
 ---
+
+![Build Status](https://travis-ci.com/chenshenhai/pictool.svg?branch=master)
+![npm-version](https://img.shields.io/npm/l/pictool.svg)
+![](https://img.shields.io/npm/v/pictool.svg)
+
