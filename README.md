@@ -1,6 +1,6 @@
 ---
 home: true
-## heroImage: /hero.png
+heroImage: https://user-images.githubusercontent.com/8216630/61581603-28ffd180-ab53-11e9-9461-a24d31643ec7.png
 actionText: 快速上手 →
 actionLink: /page/zh/file/quickstart
 features:
