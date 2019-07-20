@@ -1,18 +1,24 @@
 # Pictool.digit.transform
 
-
 ## digit.transform
 
-// TODO
+图像信息的数字化转换
 
-## transform.HSL2RGB
+## RGB转HSL RGB2HSL 
 
-// TODO
+```js
+const transform = Pictool.digit.transform;
+const rgb = {r: 12, g: 15, b: 10};
+const hsl = transform.RGB2HSL(rgb);
+// {h:96, s:20, l:5};
+```
 
-## transform.RGB2HSL
 
-// TODO
+## HSL转RGB HSL2RGB
 
-## transform.transformImageData
-
-// TODO
+```js
+const transform = Pictool.digit.transform;
+const hsl = {h:96, s:20, l:5};
+const rgb = transform.HSL2RGB(rgb);
+// {r: 12, g: 15, b: 10};
+```

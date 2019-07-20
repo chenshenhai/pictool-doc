@@ -10,9 +10,42 @@
 
 ## 快速安装
 
+### npm方式
+
 ```sh
 npm i --save pictool
 ```
+
+全量使用
+
+```js
+import Pictool from 'pictool';
+```
+
+按需使用
+
+```js
+import PictoolBrowser from 'pictool/dist/browser';
+import PictoolUI from 'pictool/dist/ui';
+import PictoolDigit from 'pictool/dist/digit';
+```
+
+### CDN方式
+
+CDN全量使用
+
+```html
+<script src="https://unpkg.com/pictool/dist/index.js"></script>
+```
+
+CDN按需使用
+
+```html
+<script src="https://unpkg.com/pictool/dist/browser.js"></script>
+<script src="https://unpkg.com/pictool/dist/digit.js"></script>
+<script src="https://unpkg.com/pictool/dist/ui.js"></script>
+```
+
 
 ## 简单的图像处理
 
