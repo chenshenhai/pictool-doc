@@ -231,7 +231,7 @@ const rsDigitImg = process.saturation(digitImg, { value: 50 });
 ![example-digit-process-saturation](./../../../assets/image/example-digit-process-saturation.jpg)
 
 
-## 灰度 process.grayscale 
+## process.grayscale 
 
 
 ```js
@@ -296,7 +296,7 @@ const rsDigitImg = process.grayscale(digitImg);
 ![example-digit-process-grayscale](./../../../assets/image/example-digit-process-grayscale.jpg)
 
 
-## 反色 process.invert
+## process.invert
 
 
 ```js
