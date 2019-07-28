@@ -145,8 +145,8 @@ const imgData = Pictool.browser.util.imageData2DigitImageData(digitImg)
 - 方法 `queueProcess`
   - 参数 `opts {array}` 是个处理流程配置数据
     - 数组的元素为对象, `{process: string, options: any}`
-    - `process` 为图像处理算法 `// TODO`
-    - `options` 为对应算法的参数 `// TODO`
+    - `process` 为图像处理算法，目前`Pictool`支持的图像处理算法 [digit.process](/page/zh/file/digit-process.html)
+    - `options` 为对应算法的参数，目前`Pictool`处理算法对应参数 [digit.process](/page/zh/file/digit-process.html)
   - 返回 `Promise<string>` 图片处理后的 `base64`字符串
 
 
@@ -164,8 +164,12 @@ const opts = [
 ]
 
 sandbox.queueProcess(opts).then(function(base64) {
-  document.getElementById('J_Example_06').innerHTML = `<img src="${base64}" />`;
+  document.getElementById('J_Example').innerHTML = `<img src="${base64}" />`;
 }).catch(function(err) {
   console.log(err);
 });
 ```
+
+处理效果如下
+
+![example-digit-browser-sanbox](./../../../assets/image/example-digit-browser-sanbox.jpg)

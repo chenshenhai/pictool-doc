@@ -260,7 +260,7 @@ const result = Pictool.digit.process.alpha(digitImg, options)
   - `value`优先级最高，当`percent`和`value`同时出现，只取`value`配置
 - 返回 `{DigitImageData}` 处理后的数字图像数据
 
-#### process.hue CDN方式使用例子
+#### process.alpha CDN方式使用例子
 
 ```html
 <html>
@@ -454,8 +454,195 @@ const rsDigitImg = process.invert(digitImg);
 
 
 
+## 褐色化 process.sepia 
 
-## sobel边缘检测 process.sobel
+图像`褐色化`处理，也就是将图片处理成`怀旧风格`
+
+```js
+const result = Pictool.digit.process.sepia(digitImg)
+```
+
+- 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
+- 返回 `{DigitImageData}` 处理后的数字图像数据
+
+#### process.sepia CDN方式使用例子
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .box {width: 200px; height: 200px; float: left; margin-left: 10px; }
+      img { max-height: 200px; max-width: 200px; }
+    </style>
+    <script src="https://unpkg.com/pictool/dist/index.js"></script>
+  </head>
+  <body>
+
+    <div class="box">
+      <img src="./assets/image/test.jpg" />
+    </div>
+
+    <div  class="box" id="J_Example"></div>
+
+  </body>
+  <script>
+  (async function(Pictool) {
+    const util = Pictool.browser.util;
+    const process = Pictool.digit.process;
+    const imgData = await util.getImageDataBySrc('./assets/image/test.jpg');
+    if (imgData instanceof Error) {
+      console.log(imgData);
+      return;
+    }
+    const digitImg = util.imageData2DigitImageData(imgData);
+    // 褐色化(怀旧) 处理
+    const rsDigitImg = process.sepia(digitImg);
+    
+    const rsImgData = util.digitImageData2ImageData(rsDigitImg);
+    const base64 = util.imageData2Base64(rsImgData);
+    document.getElementById('J_Example').innerHTML = `<img src="${base64}">`
+  })(window.Pictool);
+  </script>
+</html>
+```
+
+效果如下
+
+> 注: 测试例子所用图片来源于网络
+
+![example-digit-process-sepia](./../../../assets/image/example-digit-process-sepia.jpg)
+
+## 色阶 process.posterize 
+
+图像`色阶`处理
+
+
+```js
+const result = Pictool.digit.process.posterize(posterize, options)
+```
+
+- 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
+- 参数 `options {object}`
+  - `options.value {number}` 色阶梯度值， 取值范围为`[0, 100]`
+- 返回 `{DigitImageData}` 处理后的数字图像数据
+
+
+#### process.posterize CDN方式使用例子
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .box {width: 200px; height: 200px; float: left; margin-left: 10px; }
+      img { max-height: 200px; max-width: 200px; }
+    </style>
+    <script src="https://unpkg.com/pictool/dist/index.js"></script>
+  </head>
+  <body>
+
+    <div class="box">
+      <img src="./assets/image/test.jpg" />
+    </div>
+
+    <div  class="box" id="J_Example"></div>
+
+  </body>
+  <script>
+  (async function(Pictool) {
+    const util = Pictool.browser.util;
+    const process = Pictool.digit.process;
+    const imgData = await util.getImageDataBySrc('./assets/image/test.jpg');
+    if (imgData instanceof Error) {
+      console.log(imgData);
+      return;
+    }
+    const digitImg = util.imageData2DigitImageData(imgData);
+    // gamma 处理
+    const rsDigitImg = process.posterize(digitImg, { value: 6 });
+    
+    const rsImgData = util.digitImageData2ImageData(rsDigitImg);
+    const base64 = util.imageData2Base64(rsImgData);
+    document.getElementById('J_Example').innerHTML = `<img src="${base64}">`
+  })(window.Pictool);
+  </script>
+</html>
+```
+效果如下
+
+> 注: 测试例子所用图片来源于网络
+
+![example-digit-process-posterize](./../../../assets/image/example-digit-process-posterize.jpg)
+
+
+
+
+## Gamma处理 process.gamma 
+
+图像`Gamma`处理
+
+```js
+const result = Pictool.digit.process.gamma(digitImg, options)
+```
+
+- 参数 `digitImg {DigitImageData}` 待处理的数字图像数据
+- 参数 `options {object}`
+  - `options.value {number}` Gamma值， 取值范围为`[0, 100]`
+- 返回 `{DigitImageData}` 处理后的数字图像数据
+
+
+#### process.gamma CDN方式使用例子
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .box {width: 200px; height: 200px; float: left; margin-left: 10px; }
+      img { max-height: 200px; max-width: 200px; }
+    </style>
+    <script src="https://unpkg.com/pictool/dist/index.js"></script>
+  </head>
+  <body>
+
+    <div class="box">
+      <img src="./assets/image/test.jpg" />
+    </div>
+
+    <div  class="box" id="J_Example"></div>
+
+  </body>
+  <script>
+  (async function(Pictool) {
+    const util = Pictool.browser.util;
+    const process = Pictool.digit.process;
+    const imgData = await util.getImageDataBySrc('./assets/image/test.jpg');
+    if (imgData instanceof Error) {
+      console.log(imgData);
+      return;
+    }
+    const digitImg = util.imageData2DigitImageData(imgData);
+    // gamma 处理
+    const rsDigitImg = process.gamma(digitImg, { value: 16 });
+    
+    const rsImgData = util.digitImageData2ImageData(rsDigitImg);
+    const base64 = util.imageData2Base64(rsImgData);
+    document.getElementById('J_Example').innerHTML = `<img src="${base64}">`
+  })(window.Pictool);
+  </script>
+</html>
+```
+
+效果如下
+
+> 注: 测试例子所用图片来源于网络
+
+![example-digit-process-gamma](./../../../assets/image/example-digit-process-gamma.jpg)
+
+
+
+## Sobel边缘检测 process.sobel
 
 图像 `sobel边缘检测`
 
