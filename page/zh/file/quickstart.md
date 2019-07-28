@@ -109,6 +109,6 @@ sandbox.queueProcess([
 
 ### 浏览器结果
 
-> 注: 例子测试的图片来源于网络
+> 注: 测试例子所用图片来源于网络
 
 ![result](./../../../assets/image/001.jpg)

@@ -7,8 +7,25 @@
 ## 快速使用
 
 - 参数 `imgData {ImageData}` 是浏览器的图像数据类型参数
+- 参数 `options` 
+  - `options.uiConfig` UI配置
+    - `zIndex {number}` 显示层级
+    - `language {string}` 语言，有中文`zh-cn`和英文`en-us`两种选择，默认为英文`en-us`
+  - `options.workerConfig` 后台线程配置，用于加速图像处理
+    - `use {boolean}` 是否开启后台进程
+    - `path {string}` 后台进程`worker.js`文件的相对地址
 
 ```js
+const options = {
+  // uiConfig: {
+  //   zIndex: 1234,
+  //   language: 'zh-cn',
+  // },
+  // workerConfig: {
+  //   use: true,
+  //   path: './../../dist/worker.js',
+  // }
+}
 const pictoolUI = new Pictool.UI(imgData);
 pictoolUI.show();
 ```
@@ -51,11 +68,22 @@ pictoolUI.show();
 </html>
 ```
 
-> 注: 例子测试的图片来源于网络
+> 注: 测试例子所用图片来源于网络
 
 ![example-ui](./../../../assets/image/example-ui.jpg)
 
 
+### Pictool.UI 简单图像处理
+
+![example-ui](./../../../assets/image/pictool-ui-process.gif)
+
+### Pictool.UI 调节
+
+![example-ui](./../../../assets/image/pictool-ui-adjust.gif)
+
+### Pictool.UI 效果
+
+![example-ui](./../../../assets/image/pictool-ui-effect.gif)
 
 ## UI.show
 
